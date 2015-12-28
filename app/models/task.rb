@@ -18,7 +18,7 @@ class Task < ActiveRecord::Base
 
   def part_of_velocity?
     return false unless complete?
-    completed_at > 3.weeks.ago
+    completed_at > Project.velocity_length_in_days.days.ago
   end
 
   def points_toward_velocity
